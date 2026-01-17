@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Icons } from '../constants';
+import { Icons } from '../constants.tsx';
 
 interface FooterSectionProps {
   title: string;
@@ -17,14 +17,12 @@ const FooterSection: React.FC<FooterSectionProps> = ({ title, links }) => {
         className="w-full py-4 md:py-0 flex items-center justify-between md:cursor-default group"
       >
         <h3 className="text-lg font-semibold text-[#FFFFFD] md:mb-6">{title}</h3>
-        {/* Toggle Icon - Only visible on mobile */}
         <div className="md:hidden relative w-4 h-4">
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white transition-transform duration-300" />
           <div className={`absolute top-0 left-1/2 w-[1px] h-full bg-white transition-transform duration-300 ${isOpen ? 'rotate-90 opacity-0' : 'rotate-0'}`} />
         </div>
       </button>
 
-      {/* Links List */}
       <div className={`overflow-hidden transition-all duration-300 ease-in-out md:max-h-none ${isOpen ? 'max-h-60 pb-6' : 'max-h-0 md:max-h-none'}`}>
         <ul className="space-y-4 text-[#FFFFFD]/70 text-sm">
           {links.map((link, idx) => (
@@ -45,29 +43,29 @@ const Footer: React.FC = () => {
     {
       title: "Produits",
       links: [
-        { label: "Électroniques", href: "#" },
-        { label: "IoT & Connecté", href: "#" },
-        { label: "Énergie solaire", href: "#" },
-        { label: "Logiciels SaaS", href: "#" },
+        { label: "Électroniques", href: "#electronics" },
+        { label: "IoT & Connecté", href: "#electronics" },
+        { label: "Énergie solaire", href: "#electronics" },
+        { label: "Logiciels SaaS", href: "#software" },
       ]
     },
     {
       title: "Services",
       links: [
-        { label: "IA & Cloud Computing", href: "#" },
-        { label: "Sécurité Réseaux", href: "#" },
-        { label: "Support Premium", href: "#" },
-        { label: "Formation Pro", href: "#" },
+        { label: "IA & Cloud Computing", href: "#services" },
+        { label: "Sécurité Réseaux", href: "#services" },
+        { label: "Support Premium", href: "#services" },
+        { label: "Formation Pro", href: "#services" },
       ]
     },
     {
       title: "Entreprise",
       links: [
-        { label: "À Propos", href: "#" },
+        { label: "À Propos", href: "#about" },
         { label: "Blog", href: "#blog" },
-        { label: "Laboratoires R&D", href: "#" },
-        { label: "Carrières", href: "#" },
-        { label: "Investisseurs", href: "#" },
+        { label: "Laboratoires R&D", href: "#innovation" },
+        { label: "Carrières", href: "#account" },
+        { label: "Investisseurs", href: "#about" },
       ]
     }
   ];
@@ -83,8 +81,6 @@ const Footer: React.FC = () => {
     <footer className="bg-[#000200] text-[#FFFFFD] pt-12 md:pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-16 md:mb-20">
-          
-          {/* Column 1 - Brand */}
           <div className="space-y-6 pb-6 md:pb-0 border-b border-white/10 md:border-none">
             <Icons.Logo className="h-10 w-auto" fill="#FFFFFD" />
             <p className="text-[#FFFFFD]/60 text-sm font-light leading-relaxed max-w-sm">
@@ -103,8 +99,6 @@ const Footer: React.FC = () => {
                ))}
             </div>
           </div>
-
-          {/* Columns 2, 3, 4 - Accordion Sections */}
           {sections.map((section, idx) => (
             <FooterSection 
               key={idx} 
@@ -112,8 +106,6 @@ const Footer: React.FC = () => {
               links={section.links} 
             />
           ))}
-
-          {/* Column 5 - Newsletter */}
           <div className="space-y-6 pt-6 md:pt-0">
             <h3 className="text-lg font-semibold text-[#FFFFFD]">Restez Connecté</h3>
             <p className="text-[#FFFFFD]/60 text-xs">Abonnez-vous pour recevoir les dernières innovations de Virtssoft.</p>
@@ -127,8 +119,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-[10px] text-[#FFFFFD]/40 uppercase tracking-[0.2em]">
           <p className="text-center md:text-left">© 2024 VIRTSSOFT INC. TOUS DROITS RÉSERVÉS.</p>
           <div className="flex space-x-6">

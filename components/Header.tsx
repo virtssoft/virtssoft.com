@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { COLORS, NAV_ITEMS, Icons } from '../constants';
+import { COLORS, NAV_ITEMS, Icons } from '../constants.tsx';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +15,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Force la fermeture du menu et la navigation
   const navigateTo = (href: string) => {
     setMobileMenuOpen(false);
     window.location.hash = href;
@@ -25,11 +24,7 @@ const Header: React.FC = () => {
     setExpandedItem(expandedItem === label ? null : label);
   };
 
-  // Logique de couleur demandée : Sombre au début, Clair au scroll
-  // isSolid (quand on scroll ou que le menu est ouvert)
   const isSolid = isScrolled || mobileMenuOpen;
-  
-  // Apparence au repos (Sombre) vs Scroll (Clair)
   const textColor = isSolid ? 'text-[#000200]' : 'text-[#FFFFFD]';
   const iconColor = isSolid ? '#000200' : '#FFFFFD';
   const logoFill = isSolid ? '#00518B' : '#FFFFFD';
@@ -38,12 +33,11 @@ const Header: React.FC = () => {
     ? 'bg-[#FFFFFD]' 
     : isScrolled 
       ? 'bg-[#FFFFFD]/95 apple-blur border-b border-black/5 shadow-sm' 
-      : 'bg-black/30 backdrop-blur-sm'; // Fond sombre transparent au début
+      : 'bg-black/30 backdrop-blur-sm';
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-[60px] md:h-[70px] ${bgColor}`}>
       <div className="max-w-7xl mx-auto h-full px-6 md:px-10 flex items-center justify-between">
-        {/* Logo */}
         <div className="flex-shrink-0">
           <a href="#home" className="block transition-transform active:scale-95" onClick={() => navigateTo('#home')}>
             <Icons.Logo 
@@ -53,7 +47,6 @@ const Header: React.FC = () => {
           </a>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-10 h-full">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="group relative h-full flex items-center">
@@ -75,7 +68,6 @@ const Header: React.FC = () => {
                 )}
               </a>
               
-              {/* Dropdown Desktop */}
               {item.children && (
                 <div className="absolute top-[80%] left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
                   <div className="bg-white rounded-2xl shadow-2xl border border-black/5 min-w-[240px] p-3 overflow-hidden">
@@ -96,7 +88,6 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Actions Icons */}
         <div className="flex items-center space-x-6">
           <button onClick={() => navigateTo('#account')} className="relative group">
             <Icons.Cart className="w-5 h-5 transition-colors group-hover:text-[#00518B]" style={{ color: iconColor }} />
@@ -106,7 +97,6 @@ const Header: React.FC = () => {
             <Icons.User className="w-5 h-5 transition-colors group-hover:text-[#00518B]" style={{ color: iconColor }} />
           </button>
           
-          {/* Burger Mobile */}
           <button 
             className="lg:hidden p-2 -mr-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -120,7 +110,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 top-[60px] bg-[#FFFFFD] z-40 lg:hidden flex flex-col p-8 space-y-2 animate-fadeIn h-[calc(100vh-60px)] overflow-y-auto">
           {NAV_ITEMS.map((item) => {

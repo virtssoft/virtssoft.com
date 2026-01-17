@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavigationType, NavItem } from './types';
+import { NavigationType, NavItem } from './types.ts';
 
 export const COLORS = {
   primary: '#00518B',
@@ -24,8 +24,8 @@ export const NAV_ITEMS: NavItem[] = [
     type: NavigationType.DROPDOWN,
     children: [
       { label: 'Tous nos services', href: '#services' },
-      { label: 'Maintenance TGPro', href: '#services' },
-      { label: 'Formation Acalab', href: '#services' },
+      { label: 'Maintenance TGPro', href: '#service/tgpro' },
+      { label: 'Formation Acalab', href: '#service/acalab' },
     ],
   },
   { label: 'Innovation', href: '#innovation', type: NavigationType.LINK },

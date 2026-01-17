@@ -1,29 +1,29 @@
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ElectronicsSection from './components/ElectronicsSection';
-import ITSection from './components/ITSection';
-import ServicesSection from './components/ServicesSection';
-import Testimonials from './components/Testimonials';
-import RDSection from './components/RDSection';
-import Footer from './components/Footer';
-import LoadingScreen from './components/LoadingScreen';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
+import ElectronicsSection from './components/ElectronicsSection.tsx';
+import ITSection from './components/ITSection.tsx';
+import ServicesSection from './components/ServicesSection.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import RDSection from './components/RDSection.tsx';
+import Footer from './components/Footer.tsx';
+import LoadingScreen from './components/LoadingScreen.tsx';
 
 // Pages
-import AboutPage from './pages/AboutPage';
-import ElectronicsPage from './pages/ElectronicsPage';
-import ITPage from './pages/ITPage';
-import ServicesPage from './pages/ServicesPage';
-import InnovationPage from './pages/InnovationPage';
-import MediaPage from './pages/MediaPage';
-import BlogPage from './pages/BlogPage';
-import ContactPage from './pages/ContactPage';
-import AccountPage from './pages/AccountPage';
+import AboutPage from './pages/AboutPage.tsx';
+import ElectronicsPage from './pages/ElectronicsPage.tsx';
+import ITPage from './pages/ITPage.tsx';
+import ServicesPage from './pages/ServicesPage.tsx';
+import InnovationPage from './pages/InnovationPage.tsx';
+import MediaPage from './pages/MediaPage.tsx';
+import BlogPage from './pages/BlogPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import AccountPage from './pages/AccountPage.tsx';
 
 // Pages de détails
-import ServiceDetailPage from './pages/ServiceDetailPage';
-import BlogArticlePage from './pages/BlogArticlePage';
+import ServiceDetailPage from './pages/ServiceDetailPage.tsx';
+import BlogArticlePage from './pages/BlogArticlePage.tsx';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +32,6 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') || 'home';
-      // Gestion simplifiée des routes
       if (hash.startsWith('blog/')) {
         setCurrentPage('blog-article');
       } else if (hash.startsWith('service/')) {
