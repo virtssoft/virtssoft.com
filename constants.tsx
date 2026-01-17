@@ -35,18 +35,26 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Contact', href: '#contact', type: NavigationType.LINK },
 ];
 
+export interface LogoProps {
+  className?: string;
+  variant?: 'white' | 'blue';
+}
+
 export const Icons = {
-  Logo: ({ className, fill = 'currentColor' }: { className?: string; fill?: string }) => (
-    <svg viewBox="0 0 180 50" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <g transform="translate(0, 5) scale(0.8)">
-        <path d="M25 15C35 5 50 10 50 25C50 35 40 45 25 40C15 38 10 25 25 15Z" fill={fill} />
-        <path d="M25 35C15 45 0 40 0 25C0 15 10 5 25 10C35 12 40 25 25 35Z" fill={fill} fillOpacity="0.8" />
-        <circle cx="8" cy="12" r="4" fill={fill} fillOpacity="0.6" />
-        <circle cx="42" cy="38" r="4" fill={fill} fillOpacity="0.6" />
-      </g>
-      <text x="55" y="32" fill={fill} style={{ font: 'bold 22px Inter, sans-serif', letterSpacing: '0.05em' }}>VIRTSSOFT</text>
-    </svg>
-  ),
+  Logo: ({ className, variant = 'blue' }: LogoProps) => {
+    const src = variant === 'white' 
+      ? '/assets/images/logo/logo.png' 
+      : '/assets/images/logo/logo1.png';
+    
+    return (
+      <img 
+        src={src} 
+        alt="Virtssoft Logo" 
+        className={className}
+        style={{ objectFit: 'contain' }}
+      />
+    );
+  },
   Cart: ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} style={style}>
       <path d="M2.25 2.25h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />

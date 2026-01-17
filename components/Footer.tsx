@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-16 md:mb-20">
           <div className="space-y-6 pb-6 md:pb-0 border-b border-white/10 md:border-none">
-            <Icons.Logo className="h-10 w-auto" fill="#FFFFFD" />
+            <Icons.Logo className="h-10 w-auto" variant="white" />
             <p className="text-[#FFFFFD]/60 text-sm font-light leading-relaxed max-w-sm">
               Leader technologique en solutions électroniques et logicielles innovantes. Nous créons les outils qui définissent l'avenir.
             </p>

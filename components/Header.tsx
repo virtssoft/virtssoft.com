@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { COLORS, NAV_ITEMS, Icons } from '../constants.tsx';
 
@@ -36,7 +37,9 @@ const Header: React.FC = () => {
   
   const textColor = isSolid ? 'text-[#000200]' : 'text-[#FFFFFD]';
   const iconColor = isSolid ? '#000200' : '#FFFFFD';
-  const logoFill = isSolid ? '#00518B' : '#FFFFFD';
+  
+  // Le logo est bleu quand le fond est blanc (isSolid ou menu ouvert), blanc quand le fond est transparent sombre
+  const logoVariant = (isSolid || mobileMenuOpen) ? 'blue' : 'white';
   
   const bgColor = mobileMenuOpen 
     ? 'bg-[#FFFFFD]' 
@@ -51,7 +54,7 @@ const Header: React.FC = () => {
           <button onClick={() => navigateTo('#home')} className="block transition-transform active:scale-95">
             <Icons.Logo 
               className="h-[32px] md:h-[38px] w-auto transition-all duration-300" 
-              fill={mobileMenuOpen ? '#00518B' : logoFill} 
+              variant={logoVariant} 
             />
           </button>
         </div>
@@ -171,5 +174,4 @@ const Header: React.FC = () => {
   );
 };
 
-// Fixed: Add default export for Header component
 export default Header;

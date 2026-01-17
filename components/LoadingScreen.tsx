@@ -34,7 +34,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         <div className="animate-pulse duration-[2000ms]">
           <Icons.Logo 
             className="h-16 md:h-24 w-auto" 
-            fill="#00518B" 
+            variant="blue" 
           />
         </div>
         <div className="mt-12 w-32 h-[1px] bg-black/5 overflow-hidden">
