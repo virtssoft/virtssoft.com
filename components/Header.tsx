@@ -9,7 +9,6 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Déclenchement au premier mouvement pour le mode clair
       setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
@@ -32,20 +31,15 @@ const Header: React.FC = () => {
     setExpandedItem(expandedItem === label ? null : label);
   };
 
-  // Sombre au début, Clair au scroll
   const isSolid = isScrolled;
-  
   const textColor = isSolid ? 'text-[#000200]' : 'text-[#FFFFFD]';
   const iconColor = isSolid ? '#000200' : '#FFFFFD';
-  
-  // Le logo est bleu quand le fond est blanc (isSolid ou menu ouvert), blanc quand le fond est transparent sombre
-  const logoVariant = (isSolid || mobileMenuOpen) ? 'blue' : 'white';
   
   const bgColor = mobileMenuOpen 
     ? 'bg-[#FFFFFD]' 
     : isScrolled 
       ? 'bg-[#FFFFFD]/95 apple-blur border-b border-black/5 shadow-sm' 
-      : 'bg-black/30 backdrop-blur-md'; // Mode sombre initial (Apple-style)
+      : 'bg-black/30 backdrop-blur-md';
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 h-[64px] md:h-[74px] ${bgColor}`}>
@@ -53,8 +47,8 @@ const Header: React.FC = () => {
         <div className="flex-shrink-0">
           <button onClick={() => navigateTo('#home')} className="block transition-transform active:scale-95">
             <Icons.Logo 
+              variant={isScrolled || mobileMenuOpen ? 'blue' : 'white'} 
               className="h-[32px] md:h-[38px] w-auto transition-all duration-300" 
-              variant={logoVariant} 
             />
           </button>
         </div>

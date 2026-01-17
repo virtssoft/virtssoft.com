@@ -42,16 +42,15 @@ export interface LogoProps {
 
 export const Icons = {
   Logo: ({ className, variant = 'blue' }: LogoProps) => {
-    const src = variant === 'white' 
-      ? '/assets/images/logo/logo.png' 
-      : '/assets/images/logo/logo1.png';
-    
+    // Sélection du fichier selon la variante
+    const src = variant === 'white' ? 'logo.png' : 'logo1.png';
+
     return (
       <img 
         src={src} 
         alt="Virtssoft Logo" 
         className={className}
-        style={{ objectFit: 'contain' }}
+        style={{ display: 'block', objectFit: 'contain' }}
       />
     );
   },

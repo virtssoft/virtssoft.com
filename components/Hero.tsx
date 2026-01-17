@@ -19,7 +19,7 @@ const Hero: React.FC<HeroProps> = ({ isFlagship = true }) => {
 
   const ImageFallback = () => (
     <div className="w-full aspect-square bg-gradient-to-br from-[#00518B]/20 to-transparent rounded-full flex items-center justify-center border border-white/5">
-      <Icons.Logo className="w-1/2 h-auto opacity-20" variant="white" />
+      <Icons.Logo variant="white" className="w-1/2 h-auto opacity-20" />
     </div>
   );
 
