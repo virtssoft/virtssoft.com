@@ -14,12 +14,16 @@ const TESTIMONIALS = [
 ];
 
 const PARTNERS = [
-  { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
-  { name: 'Microsoft', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
-  { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
-  { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-  { name: 'Amazon', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg' },
-  { name: 'Tesla', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg' },
+  { name: 'Google Cloud', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_Logo.svg' },
+  { name: 'Microsoft Azure', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg' },
+  { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
+  { name: 'Schneider Electric', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Schneider_Electric_wikipedia_logo.svg' },
+  { name: 'Siemens', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Siemens-logo.svg' },
+  { name: 'Cisco', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg' },
+  { name: 'Intel', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg' },
+  { name: 'Huawei', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Huawei_logo.svg' },
+  { name: 'Dell Technologies', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg' },
+  { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg' },
 ];
 
 const Testimonials: React.FC = () => {
@@ -38,52 +42,57 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 bg-[#FFFFFD]">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
-          <div className="space-y-8">
-            <h2 className="text-3xl font-semibold text-[#000200] mb-8">Pourquoi nous choisir</h2>
-            {ARGUMENTS.map((arg) => (
-              <div key={arg.title} className="flex items-start space-x-6">
-                <div className="text-3xl p-4 bg-[#00518B]/5 rounded-full flex-shrink-0">{arg.icon}</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#000200]">{arg.title}</h3>
-                  <p className="text-[#000200]/60 mt-1 leading-relaxed">{arg.desc}</p>
+    <section className="py-20 md:py-32 bg-[#FFFFFD] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
+          <div className="space-y-12">
+            <div>
+               <span className="text-[#00518B] font-black text-[11px] uppercase tracking-[0.4em] mb-4 block">EXCELLENCE</span>
+               <h2 className="text-4xl md:text-5xl font-black text-[#000200] leading-tight tracking-tighter">Pourquoi choisir<br/>VIRTSSOFT ?</h2>
+            </div>
+            <div className="space-y-10">
+              {ARGUMENTS.map((arg) => (
+                <div key={arg.title} className="flex items-start space-x-8 group">
+                  <div className="text-3xl p-5 bg-[#00518B]/5 rounded-3xl flex-shrink-0 group-hover:bg-[#00518B] group-hover:text-white transition-all duration-500 shadow-sm">{arg.icon}</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#000200] mb-2">{arg.title}</h3>
+                    <p className="text-[#000200]/50 leading-relaxed font-light">{arg.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="bg-[#000200]/5 p-8 md:p-12 rounded-3xl relative overflow-hidden flex flex-col justify-center min-h-[400px]">
-            <h2 className="text-2xl font-semibold text-[#000200] mb-10">Paroles de partenaires</h2>
+          <div className="bg-neutral-50/50 p-10 md:p-16 rounded-[48px] relative overflow-hidden flex flex-col justify-center min-h-[450px] border border-black/[0.03]">
+            <h2 className="text-2xl font-bold text-[#000200] mb-12 tracking-tight">Ce qu'en disent nos partenaires</h2>
             
-            <div className={`transition-all duration-500 transform ${isTransitioning ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'}`}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-black/5 relative">
-                <div className="absolute -top-4 -left-4 text-6xl text-[#00518B]/10 font-serif">“</div>
-                <p className="text-[#000200]/80 italic text-lg mb-8 leading-relaxed">
+            <div className={`transition-all duration-500 transform ${isTransitioning ? 'opacity-0 translate-x-8' : 'opacity-100 translate-x-0'}`}>
+              <div className="bg-white p-10 rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.04)] border border-black/5 relative">
+                <div className="absolute -top-6 -left-4 text-8xl text-[#00518B]/5 font-serif select-none">“</div>
+                <p className="text-[#000200]/70 italic text-xl mb-10 leading-relaxed font-light">
                   {TESTIMONIALS[activeIdx].message}
                 </p>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-5">
                   <img 
                     src={TESTIMONIALS[activeIdx].avatar} 
                     alt={TESTIMONIALS[activeIdx].name} 
-                    className="w-14 h-14 rounded-full border-2 border-[#00518B]" 
+                    className="w-16 h-16 rounded-full border-2 border-[#00518B] shadow-lg" 
                   />
                   <div>
-                    <h4 className="font-semibold text-[#000200]">{TESTIMONIALS[activeIdx].name}</h4>
-                    <p className="text-xs text-[#000200]/40 uppercase tracking-[0.15em] font-medium">{TESTIMONIALS[activeIdx].company}</p>
+                    <h4 className="font-bold text-[#000200] text-lg">{TESTIMONIALS[activeIdx].name}</h4>
+                    <p className="text-[10px] text-[#00518B] uppercase tracking-[0.2em] font-black">{TESTIMONIALS[activeIdx].company}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-3 mt-12">
               {TESTIMONIALS.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIdx(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeIdx === idx ? 'bg-[#00518B] w-6' : 'bg-black/10 w-1.5 hover:bg-black/20'
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    activeIdx === idx ? 'bg-[#00518B] w-10' : 'bg-black/10 w-2 hover:bg-black/20'
                   }`}
                 />
               ))}
@@ -91,19 +100,25 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-black/5 overflow-hidden">
-          <p className="text-center text-[11px] uppercase tracking-[0.3em] text-black/30 font-semibold mb-10">
-            Ils nous font confiance
+        {/* Section Partenaires Améliorée */}
+        <div className="pt-20 border-t border-black/5">
+          <p className="text-center text-[10px] uppercase tracking-[0.5em] text-black/20 font-black mb-16">
+            RÉSEAU GLOBAL ET ALLIANCES STRATÉGIQUES
           </p>
           
-          <div className="relative flex overflow-hidden group">
-            <div className="flex animate-scroll whitespace-nowrap py-4">
+          <div className="relative flex overflow-hidden">
+            {/* Dégradés pour l'effet de fondu sur les bords */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FFFFFD] to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#FFFFFD] to-transparent z-10" />
+
+            <div className="flex animate-scroll whitespace-nowrap py-10 items-center">
               {[...PARTNERS, ...PARTNERS].map((partner, idx) => (
-                <div key={idx} className="flex items-center justify-center px-12 md:px-20">
+                <div key={idx} className="flex items-center justify-center px-16 md:px-24">
                   <img 
                     src={partner.logo} 
                     alt={partner.name} 
-                    className="h-6 md:h-8 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer object-contain"
+                    title={partner.name}
+                    className="h-7 md:h-10 w-auto grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-700 cursor-pointer object-contain"
                   />
                 </div>
               ))}
@@ -118,7 +133,7 @@ const Testimonials: React.FC = () => {
           100% { transform: translateX(-50%); }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 40s linear infinite;
         }
         .animate-scroll:hover {
           animation-play-state: paused;
