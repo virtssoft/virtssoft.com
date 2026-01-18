@@ -10,11 +10,17 @@ const Hero: React.FC<HeroProps> = ({ isFlagship = true }) => {
   const [imgError, setImgError] = useState(false);
 
   const product = {
+    id: 'virtss-pro-max',
     name: 'Virtss Pro Max',
     description: 'La puissance réinventée pour l\'avenir de l\'IoT.',
     price: '999€',
     stock: 45,
     image: 'https://images.unsplash.com/photo-1546868889-4e0c68197877?auto=format&fit=crop&q=80&w=800'
+  };
+
+  const navigateTo = (href: string) => {
+    window.location.hash = href;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const ImageFallback = () => (
@@ -56,12 +62,12 @@ const Hero: React.FC<HeroProps> = ({ isFlagship = true }) => {
               <button className="bg-[#00518B] text-[#FFFFFD] w-full lg:w-[260px] h-[44px] lg:h-[48px] rounded-[8px] font-medium transition-all hover:brightness-110 active:scale-[0.97] shadow-lg shadow-blue-900/20">
                 {product.stock > 50 ? 'Acheter' : 'Précommander'}
               </button>
-              <a 
-                href="#learn-more" 
+              <button 
+                onClick={() => navigateTo(`#product/${product.id}`)}
                 className="text-[#FFFFFD] w-full lg:w-[260px] h-[40px] lg:h-[48px] flex items-center justify-center lg:justify-start font-light text-sm lg:text-base hover:underline underline-offset-4 decoration-[#00518B] transition-all active:opacity-70"
               >
                 En savoir plus &rsaquo;
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -78,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ isFlagship = true }) => {
       <div className="relative z-20 text-center px-4 max-w-3xl space-y-8 animate-slideUp">
         <h1 className="text-[#FFFFFD] text-4xl md:text-7xl font-bold tracking-tight">Innovation sans frontières.</h1>
         <p className="text-[#FFFFFD]/80 text-lg md:text-2xl font-light">L'avenir de la technologie commence ici.</p>
-        <button className="bg-[#00518B] text-[#FFFFFD] px-10 py-4 rounded-full font-medium transition-all active:scale-95 shadow-xl">
+        <button onClick={() => navigateTo('#about')} className="bg-[#00518B] text-[#FFFFFD] px-10 py-4 rounded-full font-medium transition-all active:scale-95 shadow-xl">
           Découvrir Virtssoft
         </button>
       </div>

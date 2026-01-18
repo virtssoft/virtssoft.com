@@ -41,6 +41,11 @@ const CategorySection: React.FC<{ data: SectionData }> = ({ data }) => {
   
   const activeProduct = data.products[activeIdx];
 
+  const navigateTo = (href: string) => {
+    window.location.hash = href;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const changeProduct = useCallback((index: number) => {
     if (index === activeIdx) return;
     setIsTransitioning(true);
@@ -121,12 +126,12 @@ const CategorySection: React.FC<{ data: SectionData }> = ({ data }) => {
                 <span className="text-[18px] md:text-[20px] font-bold text-[#00518B]">
                   {activeProduct.price}
                 </span>
-                <a 
-                  href={`#learn-more-${activeProduct.id}`}
+                <button 
+                  onClick={() => navigateTo(`#product/${activeProduct.id}`)}
                   className="text-[12px] md:text-[13px] text-[#000200]/50 mt-1.5 hover:text-[#00518B] transition-colors hover:underline underline-offset-4"
                 >
                   En savoir plus &rsaquo;
-                </a>
+                </button>
               </div>
               
               <div className="w-full max-w-[240px] mt-5">

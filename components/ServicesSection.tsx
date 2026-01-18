@@ -26,6 +26,11 @@ const ServicesSection: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const navigateTo = (href: string) => {
+    window.location.hash = href;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section id="services" className="relative h-[90vh] w-full overflow-hidden bg-[#000200]">
       {SERVICES.map((service, idx) => (
@@ -64,7 +69,10 @@ const ServicesSection: React.FC = () => {
                 {service.sub}
               </p>
 
-              <button className="group relative overflow-hidden bg-[#FFFFFD] text-[#000200] px-16 py-5 rounded-full font-black transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+              <button 
+                onClick={() => navigateTo(`#service/${service.id}`)}
+                className="group relative overflow-hidden bg-[#FFFFFD] text-[#000200] px-16 py-5 rounded-full font-black transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+              >
                 <span className="relative z-10 uppercase tracking-[0.2em] text-[10px] md:text-xs">Explorer maintenant</span>
                 <div className="absolute inset-0 bg-[#00518B] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <style>{`.group:hover span { color: #FFFFFD; transition: color 0.3s; }`}</style>
